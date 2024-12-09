@@ -1,31 +1,58 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Image, Appearance } from 'react-native'
 import React from 'react'
+import icon from '@/assets/images/coffee-icon.png'
+import { Colors } from '@/constants/Colors';
 
-const Explore = () => {
+const Contact = () => {
+
+  const colorScheme = Appearance.getColorScheme();
+  const theme = colorScheme === 'dark' ? Colors.dark : Colors.light
+  const styles = CreateSyles(theme, colorScheme)
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Explore</Text>
+      <Image 
+        source={icon}
+        style={styles.mainImage}
+        resizeMode='cover'
+      />
+      <View>
+        <Text style={styles.text}>Coffee Shop</Text>
+        <Text style={styles.subtext}>Address: {'\n'}AP, India IN</Text>
+        <Text style={styles.subtext}>Contact: {'\n'}1101010101, PIN 19190 IN</Text>
+        <Text style={styles.subtext}>Mail: {'\n'}testmail@testit.com {'\n'} End of text</Text>
+      </View>
     </View>
   )
 }
 
-export default Explore
+export default Contact
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white', 
-    justifyContent: 'center',
-  }, 
-  text: {
-    fontSize: 42,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    color: 'white',
-
-  }
-})
+function CreateSyles(theme, colorScheme) {
+    return StyleSheet.create({
+      container: {
+        flex: 1,
+        backgroundColor: theme.background, 
+      }, 
+      text: {
+        fontSize: 42,
+        fontWeight: 'bold',
+        color: theme.text,
+        padding: 10, 
+      },
+      subtext: {
+        fontSize: 36, 
+        fontWeight: 'semibold',
+        color: theme.text,
+        paddingTop: 20,
+        paddingLeft: 30,
+      },
+      mainImage: {
+        width: '100%',
+        height: '35%',
+      }
+    })
+}
 
 
