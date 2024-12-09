@@ -14,7 +14,7 @@ const app = () => {
       >
         <Text style={styles.text}>Coffee Shop</Text>
 
-        <Link href="/contact" style={{marginHorizontal: 'auto'}} asChild>
+        <Link href="/menu" style={{marginHorizontal: 'auto'}} asChild>
           <Pressable style={styles.button}>
             <Text style={styles.buttonText}>
               Contact Us
